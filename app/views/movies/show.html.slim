@@ -1,0 +1,8 @@
+div.container
+  h2.text-center = @movie.title
+  div
+    = embed_video(@movie.youtube_url)
+  h3 Descripción
+  p
+    = @movie.description
+
