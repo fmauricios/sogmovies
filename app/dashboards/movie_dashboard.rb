@@ -14,6 +14,7 @@ class MovieDashboard < Administrate::BaseDashboard
     movie_length: Field::String,
     youtube_url: Field::String,
     release_year: Field::String,
+    user: Field::BelongsTo.with_options(class_name: "User"),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     avatar: PaperclipField
@@ -39,6 +40,7 @@ class MovieDashboard < Administrate::BaseDashboard
     :description,
     :movie_length,
     :youtube_url,
+    :user,
     :release_year,
     :created_at,
     :updated_at
@@ -52,6 +54,7 @@ class MovieDashboard < Administrate::BaseDashboard
     :description,
     :movie_length,
     :youtube_url,
+    :user,
     :release_year,
     :avatar
   ].freeze

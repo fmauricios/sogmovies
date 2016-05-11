@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'movies#index'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources :movies
+  resources :users, only: [:show]
 end

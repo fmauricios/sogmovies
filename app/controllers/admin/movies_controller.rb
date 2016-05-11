@@ -10,7 +10,7 @@ module Admin
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   Movie.find_by!(slug: param)
+    #   Movie.find_by!(id: param)
     # end
 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions

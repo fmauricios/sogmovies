@@ -2,7 +2,30 @@ div.container
   h2.text-center = @movie.title
   div
     = embed_video(@movie.youtube_url)
-  h3 Descripción
-  p
-    = @movie.description
+  div.panes-content
+    ul.nav.nav-tabs role="tablist"
+      li.active role="presentation"
+        a aria-controls="home" data-toggle="tab" href="#home" role="tab"  Descripción
+      li role="presentation"
+        a aria-controls="profile" data-toggle="tab" href="#profile" role="tab"  Duración
+      li role="presentation"
+        a aria-controls="messages" data-toggle="tab" href="#messages" role="tab"  Año de lanzamiento
+      li role="presentation"
+        a aria-controls="settings" data-toggle="tab" href="#settings" role="tab"  Settings
+    /! Tab panes
+    .tab-content
+      #home.tab-pane.active role="tabpanel"  = @movie.description
+      #profile.tab-pane role="tabpanel"  = @movie.movie_length
+      #messages.tab-pane role="tabpanel"  = @movie.release_year
+      #settings.tab-pane role="tabpanel"  ...
 
+  #disqus_thread
+javascript:
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//sogmovies.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+
+script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5584cbc62fe5827a" type="text/javascript"

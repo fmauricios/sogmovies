@@ -1,17 +1,23 @@
-<div class="container">
-<% @movies.each do |movie| %>
-  <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <%= image_tag movie.avatar %>
-        <div class="caption">
-          <h3 class="text-center"><%= movie.title %></h3>
-          <span>Duración: <%= movie.movie_length %></span>
-          <span> <%= link_to "Ver Más", movie_path(movie.id), class:"btn btn-primary" %> </span>
+<div class="container" style="margin-top:10px;">
+  <% @movies.each do |movie| %>
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-image">
+          <%= link_to(image_tag(movie.avatar, class: "panel-image-preview"), root_path) %>
+          <label for="toggle-4"></label>
+        </div>
+        <div class="panel-body">
+          <h4 class="text-center"><%= movie.title %></h4>
+          <p>
+            <%= truncate(movie.description, length: 250) %> 
+            <span> <%= link_to "Leer más", movie_path(movie.id)%></span>
+          </p>
+        </div>
+        <div class="panel-footer text-center">
+          <span class="fa fa-clock-o"> <%= movie.movie_length %> minutos</span>
         </div>
       </div>
     </div>
+  <% end %>
   </div>
-  <div> 
-<% end %>
 </div>

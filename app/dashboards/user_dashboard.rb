@@ -10,6 +10,11 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     email: Field::String,
+    first_name: Field::String,
+    last_name: Field::String,
+    username: Field::String,
+    genre: Field::String,
+    is_admin: Field::Boolean,
     encrypted_password: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
@@ -40,6 +45,10 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :email,
+    :first_name,
+    :last_name,
+    :username,
+    :genre,
     :encrypted_password,
     :reset_password_token,
     :reset_password_sent_at,
@@ -58,6 +67,9 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
+    :first_name,
+    :last_name,
+    :username,
     :encrypted_password,
     :reset_password_token,
     :reset_password_sent_at,

@@ -10,10 +10,10 @@ gem 'jquery-rails'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'pg', '~> 0.15'
 gem 'rails', '4.2.6'
+gem "rolify"
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem "slim-rails"
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
