@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :movies
+  has_many :favorites
 
   def is_admin?
     self.is_admin == true

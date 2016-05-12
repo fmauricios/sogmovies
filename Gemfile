@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem "slim-rails"
 gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'awesome_print'

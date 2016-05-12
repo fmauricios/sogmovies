@@ -3,9 +3,22 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @movies = Movie.paginate(page: params[:page], per_page: 6)
   end
 
   def show
+  end
+
+  def favorite
+    @movie = Movie.find(params[:id])
+    favorite = Favorite.create(favorite: params[:favorite], user: current_user, movie: @movie)
+    if favorite.valid?
+      flash[:success] = "La película fue añadida con éxito a tus favoritos"
+      redirect_to :back
+    else
+      flash[:danger] = "Tu sólo puedes darle favorito/no-favorito una sola vez"
+      redirect_to :back
+    end
   end
 
   private

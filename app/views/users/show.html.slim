@@ -19,3 +19,7 @@ div.jumbotron
     p = link_to "Editar Perfil", edit_user_registration_path
 
 h2.text-center Mis Películas Favoritas
+
+div.jumbotron
+  - @user.favorites.each do |favorite|
+    p = favorite.movie.title

@@ -2,6 +2,18 @@ div.container
   h2.text-center = @movie.title
   div
     = embed_video(@movie.youtube_url)
+  div.pull-right
+    = link_to favorite_movie_path(@movie, favorite: true), method: :post do
+      i class="fa fa-thumbs-o-up" aria-hidden="true" &nbsp&nbsp
+      |
+      = @movie.thumbs_up_total
+    = link_to favorite_movie_path(@movie, favorite: false), method: :post do
+      span &nbsp&nbsp&nbsp&nbsp
+      i class="fa fa-thumbs-o-down" aria-hidden="true" &nbsp&nbsp&nbsp
+      |
+      = @movie.thumbs_down_total
+
+
   div.panes-content
     ul.nav.nav-tabs role="tablist"
       li.active role="presentation"
