@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'acts_as_votable', '~> 0.10.0'
 gem "administrate", "~> 0.2.0"
 gem "administrate-field-image"
 gem 'bootstrap-sass', '~> 3.3.6'

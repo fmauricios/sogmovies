@@ -8,21 +8,20 @@ class MoviesController < ApplicationController
 
   def show
   end
-
-  def favorite
+  
+  def upvote 
     @movie = Movie.find(params[:id])
-    favorite = Favorite.create(favorite: params[:favorite], user: current_user, movie: @movie)
-    if favorite.valid?
-      flash[:success] = "La película fue añadida con éxito a tus favoritos"
-      redirect_to :back
-    else
-      flash[:danger] = "Tu sólo puedes darle favorito/no-favorito una sola vez"
-      redirect_to :back
-    end
+    @movie.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @movie = Movie.find(params[:id])
+    @movie.downvote_by current_user
+    redirect_to :back
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_movie
       @movie = Movie.find(params[:id])
     end

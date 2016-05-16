@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :movies do
     member do
-      post 'favorite'
+      #post 'favorite'
+      put "favorite", to: "movies#upvote"
+      put "unfavorite", to: "movies#downvote"
     end
   end
   resources :users, only: [:show]

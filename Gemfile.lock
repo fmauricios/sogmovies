@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     administrate (0.2.0)
       autoprefixer-rails (~> 6.0)
       datetime_picker_rails (~> 0.0.7)
@@ -237,6 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable (~> 0.10.0)
   administrate (~> 0.2.0)
   administrate-field-image
   awesome_print

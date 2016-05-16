@@ -3,16 +3,18 @@ div.container
   div
     = embed_video(@movie.youtube_url)
   div.pull-right
-    = link_to favorite_movie_path(@movie, favorite: true), method: :post do
-      i class="fa fa-thumbs-o-up" aria-hidden="true" &nbsp&nbsp
+    = link_to favorite_movie_path(@movie), method: :put do
+      i class="fa fa-heart" aria-hidden="true" style="color: red;" 
       |
-      = @movie.thumbs_up_total
-    = link_to favorite_movie_path(@movie, favorite: false), method: :post do
-      span &nbsp&nbsp&nbsp&nbsp
-      i class="fa fa-thumbs-o-down" aria-hidden="true" &nbsp&nbsp&nbsp
+        &nbsp
+      = @movie.get_upvotes.size 
       |
-      = @movie.thumbs_down_total
-
+        &nbsp&nbsp
+    = link_to unfavorite_movie_path(@movie), method: :put do
+      i class="fa fa-heart-o" aria-hidden="true"
+      |
+       &nbsp
+      = @movie.get_downvotes.size
 
   div.panes-content
     ul.nav.nav-tabs role="tablist"
