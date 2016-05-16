@@ -9,8 +9,8 @@
         <div class="panel-body">
           <h4 class="text-center"><%= movie.title %></h4>
           <p>
-            <%= truncate(movie.description, length: 250) %> 
-            <span> <%= link_to "Leer más", movie_path(movie.id)%></span>
+          <%= truncate(movie.description, length: 250) %> 
+          <span> <%= link_to "Leer más", movie_path(movie.id)%></span>
           </p>
         </div>
         <div class="panel-footer text-center">
@@ -19,9 +19,7 @@
       </div>
     </div>
   <% end %>
-  </div>
   <div class="text-center">
     <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
   </div>
 </div>
-

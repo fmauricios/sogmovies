@@ -3,6 +3,13 @@
     <div class="navbar-header">
       <%= link_to "SOG MOVIES", root_path, class: "navbar-brand" %>
     </div>
+    
+    <%= form_tag movies_path, method: :get, class: "form-horizontal navbar-form navbar-left" do %> 
+      <div class="form-group">
+        <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), class: "form-control" %>  
+        <%= submit_tag "Ordenar", class: "btn btn-primary" %>
+      </div>
+    <% end %>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">

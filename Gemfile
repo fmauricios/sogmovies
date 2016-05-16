@@ -6,6 +6,7 @@ gem "administrate-field-image"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
+gem 'filterrific'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem "paperclip", "~> 5.0.0.beta1"

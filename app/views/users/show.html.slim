@@ -26,3 +26,5 @@ h2.text-center Mis Películas Favoritas
     div.panel.panel-default
       div.panel-image
         = image_tag favorite.avatar, class: "panel-image-preview"
+    div.pull-right
+      = link_to "Eliminar de favoritos", unfavorite_movie_path(favorite), method: :put
