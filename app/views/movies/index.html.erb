@@ -1,4 +1,22 @@
-<div class="container" style="margin-top:10px;">
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="input-group form_filter">
+      <%= form_tag movies_path, method: :get, class: "form-horizontal navbar-form navbar-left" do %>
+        <div class="form-group">
+          <div class="select">
+            <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), id: "slct" %>
+          </div>
+        </div>
+      <% end %>
+        <span class="input-group-btn">
+            <%= submit_tag "Ordenar", class: "btn btn-primary" %>
+        </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-4 -->
+</div><!-- /.row -->
+
+
+<div class="container" style="margin-top:35px;">
   <% @movies.each do |movie| %>
     <div class="col-xs-12 col-md-6">
       <div class="panel panel-default">
@@ -9,7 +27,7 @@
         <div class="panel-body">
           <h4 class="text-center"><%= movie.title %></h4>
           <p>
-          <%= truncate(movie.description, length: 230) %> 
+          <%= truncate(movie.description, length: 230) %>
           <span> <%= link_to "Leer más", movie_path(movie.id)%></span>
           </p>
         </div>

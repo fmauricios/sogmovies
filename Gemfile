@@ -6,9 +6,9 @@ gem "administrate-field-image"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
-gem 'filterrific'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'masonry-rails'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'pg', '~> 0.15'
 gem 'rails', '4.2.6'
@@ -31,4 +31,3 @@ group :development do
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
-
