@@ -1,6 +1,11 @@
 div.jumbotron
   div.text-center
     h1 Mi perfil
+    div class="row"
+      div class="span4"
+      div class="span4"
+        = image_tag(@user.avatar, class:"img-responsive img-circle center-block", width: "304", height:"236")
+      div class="span4"
     p
       | Nombre de Usuario: 
       span = @user.username
@@ -27,4 +32,6 @@ h2.text-center Mis Películas Favoritas
       div.panel-image
         = image_tag favorite.avatar, class: "panel-image-preview"
     div.pull-right
-      = link_to "Eliminar de favoritos", unfavorite_movie_path(favorite), method: :put
+      = link_to unfavorite_movie_path(favorite), method: :put do
+        span Eliminar de favoritos &nbsp
+        i class="fa fa-trash-o" aria-hidden="true"

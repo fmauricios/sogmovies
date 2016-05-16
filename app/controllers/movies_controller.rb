@@ -10,9 +10,9 @@ class MoviesController < ApplicationController
       elsif params[:search] == "release_year"
         @movies = Movie.paginate(page: params[:page], per_page: 6).order("#{params[:search]} desc")
       elsif params[:search] == "popularity"
-        @movies = Movie.paginate(page: params[:page], per_page: 6).order(:get_upvotes.size)
+        @movies = Movie.paginate(page: params[:page], per_page: 6).order(cached_votes_up: :desc)
       elsif params[:search] == "trending"
-        @movies = Movie.paginate(page: params[:page], per_page: 10).order(:get_upvotes.size).limit(10)
+        @movies = Movie.paginate(page: params[:page], per_page: 10).order(cached_votes_up: :desc).limit(10)
       end
     end
   end

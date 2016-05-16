@@ -15,6 +15,7 @@ class UserDashboard < Administrate::BaseDashboard
     username: Field::String,
     genre: Field::String,
     is_admin: Field::Boolean,
+    avatar: PaperclipField,
     encrypted_password: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
@@ -60,6 +61,7 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_ip,
     :created_at,
     :updated_at,
+    :avatar
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -79,6 +81,7 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_at,
     :current_sign_in_ip,
     :last_sign_in_ip,
+    :avatar
   ].freeze
 
   # Overwrite this method to customize how users are displayed

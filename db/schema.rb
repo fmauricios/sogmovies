@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516030859) do
+ActiveRecord::Schema.define(version: 20160516165853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "favorites", force: :cascade do |t|
-    t.boolean  "favorite"
-    t.integer  "user_id"
-    t.integer  "movie_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -30,15 +22,29 @@ ActiveRecord::Schema.define(version: 20160516030859) do
     t.string   "movie_length"
     t.string   "youtube_url"
     t.string   "release_year"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "user_id"
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
+  add_index "movies", ["cached_votes_down"], name: "index_movies_on_cached_votes_down", using: :btree
+  add_index "movies", ["cached_votes_score"], name: "index_movies_on_cached_votes_score", using: :btree
+  add_index "movies", ["cached_votes_total"], name: "index_movies_on_cached_votes_total", using: :btree
+  add_index "movies", ["cached_votes_up"], name: "index_movies_on_cached_votes_up", using: :btree
+  add_index "movies", ["cached_weighted_average"], name: "index_movies_on_cached_weighted_average", using: :btree
+  add_index "movies", ["cached_weighted_score"], name: "index_movies_on_cached_weighted_score", using: :btree
+  add_index "movies", ["cached_weighted_total"], name: "index_movies_on_cached_weighted_total", using: :btree
   add_index "movies", ["user_id"], name: "index_movies_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -59,6 +65,10 @@ ActiveRecord::Schema.define(version: 20160516030859) do
     t.string   "username"
     t.string   "genre"
     t.boolean  "is_admin"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

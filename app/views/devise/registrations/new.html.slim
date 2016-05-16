@@ -11,6 +11,7 @@ div.container
     = f.input :last_name
     = f.input :username
     = f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero"
+    = f.input :avatar, as: :file
     = f.input :password, autocomplete: "off"
     = f.input :password_confirmation, autocomplete: "off"
     = f.button :submit
