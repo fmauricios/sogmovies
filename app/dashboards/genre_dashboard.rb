@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class MovieDashboard < Administrate::BaseDashboard
+class GenreDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,16 +9,9 @@ class MovieDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    title: Field::String,
-    description: Field::Text,
-    movie_length: Field::String,
-    youtube_url: Field::String,
-    release_year: Field::DateTime,
-    cached_votes_total: Field::String,
-    user: Field::BelongsTo.with_options(class_name: "User"),
+    name: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    avatar: PaperclipField
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,46 +21,29 @@ class MovieDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :title,
-    :description,
-    :movie_length,
+    :name,
     :created_at,
-    :release_year,
-    :cached_votes_total
+    :updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :title,
-    :description,
-    :movie_length,
-    :youtube_url,
-    :user,
-    :release_year,
-    :cached_votes_total,
-    :created_at,
-    :updated_at
+    :name
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :title,
-    :description,
-    :movie_length,
-    :youtube_url,
-    :user,
-    :release_year,
-    :avatar
+    :name
   ].freeze
 
-  # Overwrite this method to customize how movies are displayed
+  # Overwrite this method to customize how genres are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(movie)
-  #   "Movie ##{movie.id}"
+  # def display_resource(genre)
+  #   "Genre ##{genre.id}"
   # end
 end

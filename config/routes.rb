@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :genres
   ## Admin Routes
 
   namespace :admin do
     resources :users
     resources :movies
-
+    resources :genres
+  
     root to: "users#index"
   end
 
@@ -21,5 +23,4 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show]
-
 end

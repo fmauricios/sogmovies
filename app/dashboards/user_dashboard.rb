@@ -37,8 +37,11 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :email,
-    :encrypted_password,
-    :reset_password_token,
+    :username,
+    :first_name,
+    :last_name,
+    :genre,
+    :is_admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

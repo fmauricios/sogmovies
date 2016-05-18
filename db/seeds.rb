@@ -6,15 +6,37 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+user = User.create(
+  [
+    {
+      email: "mauricioserf@hotmail.com",
+      password: "mauricioserna95",
+      first_name: "Mauricio",
+      last_name: "Serna",
+      username: "fmauricios",
+      genre: "Hombre",
+      is_admin: true  
+    },
+    {
+      email: "1@sog_movies.com",
+      password: "sog_movies1",
+      first_name: "Anacleto",
+      last_name: "Perez",
+      username: "anape",
+      genre: "Hombre"
+    }
+  ]
+)
+
 movie = Movie.create(
   [
     {
       title: "DeadPool",
       description: "Wade Winston Wilson, mejor conocido como Deadpool (adaptado como Masacre en algunas traducciones españolas)2 , es un personaje ficticio, mercenario y antihéroe, que aparece en los cómics publicados por Marvel Comics",
-      movie_length: "1h 25",
+      movie_length: "85",
       youtube_url: "https://www.youtube.com/watch?v=ZIM1HydF9UA",
       user: User.first,
-      release_year: 2016,
+      release_year: Date.new(2016, 5, 12),
       avatar: File.new(Rails.root.join("app", "assets", "images", "deadpool.jpeg"))
     },
     {
@@ -23,7 +45,7 @@ movie = Movie.create(
       movie_length: "142",
       youtube_url: "https://www.youtube.com/watch?v=-m6UKS1L0YQ",
       user: User.first,
-      release_year: 2016,
+      release_year: Date.new(2016, 5, 8),
       avatar: File.new(Rails.root.join("app", "assets", "images", "avengers.jpg"))
     },
     {
@@ -32,7 +54,7 @@ movie = Movie.create(
       movie_length: "156",
       youtube_url: "https://www.youtube.com/watch?v=LoebZZ8K5N0",
       user: User.first,
-      release_year: 2016,
+      release_year: Date.new(2016, 3, 4),
       avatar: File.new(Rails.root.join("app", "assets", "images", "revenant.jpg"))
     },
     {
@@ -41,7 +63,7 @@ movie = Movie.create(
       movie_length: "106",
       youtube_url: "https://www.youtube.com/watch?v=Mk4briOLrTQ",
       user: User.first,
-      release_year: 2014,
+      release_year: Date.new(2014, 1, 1),
       avatar: File.new(Rails.root.join("app", "assets", "images", "origins.jpg"))
     },
     {
@@ -50,7 +72,7 @@ movie = Movie.create(
       movie_length: "132",
       youtube_url: "https://www.youtube.com/watch?v=VjctHUEmutw",
       user: User.first,
-      release_year: 2014,
+      release_year: Date.new(2014, 3, 12),
       avatar: File.new(Rails.root.join("app", "assets", "images", "equalizer.png"))
     }
 

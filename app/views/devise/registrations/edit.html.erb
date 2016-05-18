@@ -3,15 +3,15 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal', method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.input :username %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
+  <%= f.input :email, autofocus: true, label: "Correo electrónico" %>
+  <%= f.input :first_name, label: "Nombres" %>
+  <%= f.input :last_name, label: "Apellidos" %>
+  <%= f.input :username, label: "Nombre de usuario" %>
   <%= f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero" %>
-  <%= f.input :email, autofocus: true %>
   <%= f.input :avatar, as: :file %>
-  <%= f.input :password, autocomplete: "off" %>
-  <%= f.input :password_confirmation, autocomplete: "off" %>
-  <%= f.input :current_password, autocomplete: "off" %>
+  <%= f.input :password, autocomplete: "off", label: "Nueva contraseña" %>
+  <%= f.input :password_confirmation, autocomplete: "off", label: "Repite tu contraseña" %>
+  <%= f.input :current_password, autocomplete: "off", label: "Contraseña actual" %>
   <%= f.submit 'Editar', class: "btn btn-default" %>
 <% end %>
 

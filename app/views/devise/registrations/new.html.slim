@@ -1,18 +1,17 @@
 h2.text-center Registrarse
 
-div.container
+div.container.register_form
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
     = devise_error_messages!
 
-    = f.input :email, autofocus: true
-    - if @minimum_password_length
-      em 8 caracteres mínimo
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :username
+    = f.input :email, autofocus: true, label: "Correo electrónico"
+    = f.input :first_name, label: "Nombres"
+    = f.input :last_name, label: "Apellidos"
+    = f.input :username, label: "Nombre de usuario"
     = f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero"
     = f.input :avatar, as: :file
-    = f.input :password, autocomplete: "off"
-    = f.input :password_confirmation, autocomplete: "off"
-    = f.button :submit
-  = render "devise/shared/links"
+    = f.input :password, autocomplete: "off", label: "Contraseña"
+    - if @minimum_password_length
+      em 8 caracteres mínimo
+    = f.input :password_confirmation, autocomplete: "off", label: "Repite tu contraseña"
+    = f.submit "Registrarse", class: "btn btn-success center-block register_button"

@@ -9,12 +9,13 @@
        <span class="icon-bar"></span>
      </button>
      <div class="small-logo-container">
-       <a class="small-logo" href="#">SOGMovies</a>
+       <%= link_to("SOGMovies", root_path, class: "small-logo") %>
      </div>
    </div>
    <div class="navbar-collapse collapse">
 
      <ul class="nav navbar-nav navbar-right">
+       <li> <%= link_to "Inicio", root_path %> </li>
        <% if user_signed_in? %>
          <% if current_user.is_admin? %>
            <li> <%= link_to "Administrador", admin_root_path %></li>

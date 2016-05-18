@@ -11,17 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516165853) do
+ActiveRecord::Schema.define(version: 20160518160705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "movie_length"
     t.string   "youtube_url"
-    t.string   "release_year"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.string   "avatar_file_name"
@@ -36,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160516165853) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.datetime "release_year"
   end
 
   add_index "movies", ["cached_votes_down"], name: "index_movies_on_cached_votes_down", using: :btree

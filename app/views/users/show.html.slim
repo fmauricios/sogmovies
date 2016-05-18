@@ -30,7 +30,7 @@ h2.text-center Mis Películas Favoritas
     h3.text-center = favorite.title
     div.panel.panel-default
       div.panel-image
-        = image_tag favorite.avatar, class: "panel-image-preview"
+        = link_to(image_tag(favorite.avatar, class: "panel-image-preview"), favorite)
     div.pull-right
       = link_to unfavorite_movie_path(favorite), method: :put do
         span Eliminar de favoritos &nbsp
