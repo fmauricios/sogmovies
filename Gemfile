@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'masonry-rails'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'pg', '~> 0.15'
+gem 'puma'
 gem 'rails', '4.2.6'
 gem "rolify"
 gem 'sass-rails', '~> 5.0'

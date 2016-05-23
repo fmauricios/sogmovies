@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 user = User.create(
   [
     {
@@ -24,6 +25,27 @@ user = User.create(
       last_name: "Perez",
       username: "anape",
       genre: "Hombre"
+    }
+  ]
+)
+
+genre = Genre.create(
+  [
+    {
+      name: "Terror"
+    },
+    {
+      name: "Suspenso"
+    },
+    {
+      name: "Acción"
+    },
+
+    {
+      name: "Comedia"
+    }, 
+    {
+      name: "Aventura"
     }
   ]
 )
