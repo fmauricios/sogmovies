@@ -18,7 +18,8 @@ class MovieDashboard < Administrate::BaseDashboard
     user: Field::BelongsTo.with_options(class_name: "User"),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    avatar: PaperclipField
+    avatar: PaperclipField,
+    genres: Field::HasMany,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,6 +31,7 @@ class MovieDashboard < Administrate::BaseDashboard
     :id,
     :title,
     :description,
+    :genres,
     :movie_length,
     :created_at,
     :release_year,
@@ -61,13 +63,14 @@ class MovieDashboard < Administrate::BaseDashboard
     :youtube_url,
     :user,
     :release_year,
-    :avatar
+    :avatar,
+    :genres,
   ].freeze
 
   # Overwrite this method to customize how movies are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(movie)
-  #   "Movie ##{movie.id}"
-  # end
+
+  def display_resource(movie)
+    "Movie #{movie.id} - #{movie.title}"
+  end
 end

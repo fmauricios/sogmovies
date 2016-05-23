@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users
     resources :movies
     resources :genres
+    resources :directors
   
     root to: "users#index"
   end
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :movies do
     member do
-      #post 'favorite'
       put "favorite", to: "movies#upvote"
       put "unfavorite", to: "movies#downvote"
     end

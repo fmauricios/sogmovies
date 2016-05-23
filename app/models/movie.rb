@@ -10,4 +10,7 @@ class Movie < ActiveRecord::Base
   validates :description, length: { maximum: 250 }
 
   belongs_to :user
+
+  has_many :categorizations
+  has_many :genres, through: :categorizations
 end
