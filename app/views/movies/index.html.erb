@@ -4,7 +4,8 @@
       <%= form_tag movies_path, method: :get, class: "form-horizontal navbar-form navbar-left" do %>
         <div class="form-group">
           <div class="select">
-            <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), id: "slct" %>
+            <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), prompt: "Selecciona criterio a ordenar", id: "slct" %>
+            <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]), prompt: "Selecciona un género" %>
           </div>
         </div>
         <span class="input-group-btn">

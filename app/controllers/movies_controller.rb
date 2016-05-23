@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.paginate(page: params[:page], per_page: 6)
+    @movies = Movie.paginate(page: params[:page], per_page: 6).order(cached_votes_up: :desc)
 
     if params[:search]
       if params[:search] == "title"
@@ -13,6 +13,8 @@ class MoviesController < ApplicationController
         @movies = Movie.paginate(page: params[:page], per_page: 6).order(cached_votes_up: :desc)
       elsif params[:search] == "trending"
         @movies = Movie.paginate(page: params[:page], per_page: 10).order(cached_votes_up: :desc).limit(10)
+      elsif params[:genre_id]
+        @movies = Genre.find(params[:genre_id]).movies.paginate(page: params[:page], per_page: 6)
       end
     end
   end

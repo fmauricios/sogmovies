@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :genres
-  ## Admin Routes
+  # Admin Routes
 
   namespace :admin do
     resources :users
     resources :movies
     resources :genres
     resources :directors
+    resources :actors
   
     root to: "users#index"
   end

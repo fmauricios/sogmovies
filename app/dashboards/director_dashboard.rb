@@ -57,6 +57,6 @@ class DirectorDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(director)
-    "Director - #{director.first_name} #{director.last_name}"
+    "#{director.first_name} #{director.last_name}"
   end
 end
