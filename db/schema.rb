@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518182405) do
+ActiveRecord::Schema.define(version: 20160523141054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20160518182405) do
 
   add_index "categorizations", ["genre_id"], name: "index_categorizations_on_genre_id", using: :btree
   add_index "categorizations", ["movie_id"], name: "index_categorizations_on_movie_id", using: :btree
+
+  create_table "directorizations", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "director_id"
+  end
+
+  add_index "directorizations", ["director_id"], name: "index_directorizations_on_director_id", using: :btree
+  add_index "directorizations", ["movie_id"], name: "index_directorizations_on_movie_id", using: :btree
 
   create_table "directors", force: :cascade do |t|
     t.string   "first_name"
