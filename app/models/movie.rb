@@ -13,4 +13,8 @@ class Movie < ActiveRecord::Base
 
   has_many :categorizations
   has_many :genres, through: :categorizations
+
+  has_many :directorizations
+  has_many :directors, through: :directorizations
+
 end
