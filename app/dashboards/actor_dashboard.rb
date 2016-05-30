@@ -13,6 +13,7 @@ class ActorDashboard < Administrate::BaseDashboard
     first_name: Field::String,
     last_name: Field::String,
     birthday: Field::DateTime,
+    avatar: PaperclipField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -48,6 +49,7 @@ class ActorDashboard < Administrate::BaseDashboard
     :first_name,
     :last_name,
     :birthday,
+    :avatar
   ].freeze
 
   # Overwrite this method to customize how actors are displayed

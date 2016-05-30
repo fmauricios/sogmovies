@@ -132,7 +132,7 @@ $small-logo-padding: 2px; // of bottom padding to look nice
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
    border-color: transparent;
-  @media (max-width: 767px) {
+   @media (max-width: 767px) {
     background: rgba(255,255,255,0.75);
   }
 }
@@ -148,14 +148,14 @@ ul.nav {
 }
 
 /* *********************************
-           Toolbar Logo
-  ********************************** */
+Toolbar Logo
+ ********************************** */
 .small-logo-container {
-    padding-top: $navbar-height;
-    height: $navbar-height;
-    overflow: hidden;
-    position: absolute;
-  }
+  padding-top: $navbar-height;
+  height: $navbar-height;
+  overflow: hidden;
+  position: absolute;
+}
 
 .small-logo {
   color: white;
@@ -164,10 +164,10 @@ ul.nav {
 }
 
 /* *********************************
-           Big Logo
-  ********************************** */
+Big Logo
+ ********************************** */
 .big-logo-row {
-  background: #ffd600 ;
+  background: #bf360c ;
 
   .big-logo-container {
     padding-top: $navbar-height;

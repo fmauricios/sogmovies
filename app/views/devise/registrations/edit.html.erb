@@ -9,10 +9,8 @@
   <%= f.input :username, label: "Nombre de usuario" %>
   <%= f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero" %>
   <%= f.input :avatar, as: :file %>
+  <%= f.input :current_password, autocomplete: "off", label: "Contraseña actual" %>
   <%= f.input :password, autocomplete: "off", label: "Nueva contraseña" %>
   <%= f.input :password_confirmation, autocomplete: "off", label: "Repite tu contraseña" %>
-  <%= f.input :current_password, autocomplete: "off", label: "Contraseña actual" %>
-  <%= f.submit 'Editar', class: "btn btn-default" %>
+  <%= f.submit 'Editar', class: "btn btn-success center-block" %>
 <% end %>
-
-<%= link_to "Atrás", :back %>

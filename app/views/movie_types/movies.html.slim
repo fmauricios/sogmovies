@@ -1,0 +1,10 @@
+h1.text-center Películas
+
+- if !@movie_type.movies.empty?
+  - @movie_type.movies.each do |movie|
+    p = movie.title
+- else
+  .alert.alert-danger.text-center role="alert"
+    span.glyphicon.glyphicon-exclamation-sign aria-hidden="true"
+    span.sr-only Error:
+    | &nbsp No hay películas disponibles

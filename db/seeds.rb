@@ -5,9 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+MovieType.create(
+  [
+    {
+      name: "serie"
+    },
+    {
+      name: "anime"
+    },
+    {
+      name: "movie"
+    }
+
+  ]
+)
 
 
-user = User.create(
+User.create(
   [
     {
       email: "mauricioserf@hotmail.com",
@@ -16,7 +30,7 @@ user = User.create(
       last_name: "Serna",
       username: "fmauricios",
       genre: "Hombre",
-      is_admin: true  
+      is_admin: true
     },
     {
       email: "1@sog_movies.com",
@@ -29,7 +43,7 @@ user = User.create(
   ]
 )
 
-genre = Genre.create(
+Genre.create(
   [
     {
       name: "Terror"
@@ -43,14 +57,14 @@ genre = Genre.create(
 
     {
       name: "Comedia"
-    }, 
+    },
     {
       name: "Aventura"
     }
   ]
 )
 
-movie = Movie.create(
+Movie.create(
   [
     {
       title: "DeadPool",
@@ -59,7 +73,8 @@ movie = Movie.create(
       youtube_url: "https://www.youtube.com/watch?v=ZIM1HydF9UA",
       user: User.first,
       release_year: Date.new(2016, 5, 12),
-      avatar: File.new(Rails.root.join("app", "assets", "images", "deadpool.jpeg"))
+      avatar: File.new(Rails.root.join("app", "assets", "images", "deadpool.jpeg")),
+      movie_type: MovieType.last
     },
     {
       title: "Avengers",
@@ -68,7 +83,8 @@ movie = Movie.create(
       youtube_url: "https://www.youtube.com/watch?v=-m6UKS1L0YQ",
       user: User.first,
       release_year: Date.new(2016, 5, 8),
-      avatar: File.new(Rails.root.join("app", "assets", "images", "avengers.jpg"))
+      avatar: File.new(Rails.root.join("app", "assets", "images", "avengers.jpg")),
+      movie_type: MovieType.last
     },
     {
       title: "Revenant",
@@ -77,7 +93,8 @@ movie = Movie.create(
       youtube_url: "https://www.youtube.com/watch?v=LoebZZ8K5N0",
       user: User.first,
       release_year: Date.new(2016, 3, 4),
-      avatar: File.new(Rails.root.join("app", "assets", "images", "revenant.jpg"))
+      avatar: File.new(Rails.root.join("app", "assets", "images", "revenant.jpg")),
+      movie_type: MovieType.last
     },
     {
       title: "I Origins",
@@ -86,7 +103,8 @@ movie = Movie.create(
       youtube_url: "https://www.youtube.com/watch?v=Mk4briOLrTQ",
       user: User.first,
       release_year: Date.new(2014, 1, 1),
-      avatar: File.new(Rails.root.join("app", "assets", "images", "origins.jpg"))
+      avatar: File.new(Rails.root.join("app", "assets", "images", "origins.jpg")),
+      movie_type: MovieType.last
     },
     {
       title: "The Equalizer",
@@ -95,8 +113,8 @@ movie = Movie.create(
       youtube_url: "https://www.youtube.com/watch?v=VjctHUEmutw",
       user: User.first,
       release_year: Date.new(2014, 3, 12),
-      avatar: File.new(Rails.root.join("app", "assets", "images", "equalizer.png"))
+      avatar: File.new(Rails.root.join("app", "assets", "images", "equalizer.png")),
+      movie_type: MovieType.last
     }
-
   ]
 )

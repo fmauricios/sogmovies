@@ -1,0 +1,15 @@
+div.jumbotron
+  div.text-center
+    h1 = @actor.full_name
+    div class="row"
+      div class="span4"
+      div class="span4"
+        = image_tag(@actor.avatar, class:"img-responsive center-block", width: "304", height:"236")
+      div class="span4"
+    p
+      | Fecha de nacimiento:
+      span = @actor.birthday.strftime("%d-%m-%Y")
+
+    h2 Películas en las que ha actuado
+    - @actor.movies.each do |movie|
+      p = link_to movie.title, movie

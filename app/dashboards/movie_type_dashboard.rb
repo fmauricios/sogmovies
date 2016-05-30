@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class DirectorDashboard < Administrate::BaseDashboard
+class MovieTypeDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,10 +10,7 @@ class DirectorDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     movies: Field::HasMany,
     id: Field::Number,
-    first_name: Field::String,
-    last_name: Field::String,
-    birthday: Field::DateTime,
-    avatar: PaperclipField,
+    name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,10 +23,8 @@ class DirectorDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :movies,
     :id,
-    :first_name,
-    :last_name,
-    :birthday,
-    :updated_at,
+    :name,
+    :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,9 +32,7 @@ class DirectorDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :movies,
     :id,
-    :first_name,
-    :last_name,
-    :birthday,
+    :name,
     :created_at,
     :updated_at,
   ].freeze
@@ -49,16 +42,13 @@ class DirectorDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :movies,
-    :first_name,
-    :last_name,
-    :birthday,
-    :avatar
+    :name,
   ].freeze
 
-  # Overwrite this method to customize how directors are displayed
+  # Overwrite this method to customize how movie types are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(director)
-    "#{director.first_name} #{director.last_name}"
+  def display_resource(movie_type)
+    "#{movie_type.name}"
   end
 end

@@ -16,6 +16,7 @@ class MovieDashboard < Administrate::BaseDashboard
     release_year: Field::DateTime,
     cached_votes_total: Field::String,
     user: Field::BelongsTo.with_options(class_name: "User"),
+    movie_type: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     avatar: PaperclipField,
@@ -50,6 +51,7 @@ class MovieDashboard < Administrate::BaseDashboard
     :movie_length,
     :youtube_url,
     :user,
+    :movie_type,
     :release_year,
     :cached_votes_total,
     :created_at,
@@ -67,6 +69,7 @@ class MovieDashboard < Administrate::BaseDashboard
     :release_year,
     :avatar,
     :genres,
+    :movie_type,
     :directors,
     :actors,
   ].freeze
