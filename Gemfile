@@ -24,6 +24,7 @@ gem 'will_paginate-bootstrap'
 group :development, :test do
   gem 'awesome_print'
   gem 'byebug'
+  gem 'factory_girl_rails', '~> 4.7', require: false
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails'
