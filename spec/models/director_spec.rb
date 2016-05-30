@@ -1,5 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Director, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Actor, :type => :model do
+
+  describe ".full_name" do
+    it "returns full name" do
+      director = Director.new({
+        first_name: "Jorge",
+        last_name: "Serna",
+        birthday: Date.new(1965, 02, 02)
+      })
+      expect(director.full_name).to eq("Jorge Serna")
+    end
+  end
+
 end
