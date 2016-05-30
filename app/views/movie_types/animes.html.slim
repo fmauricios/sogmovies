@@ -1,0 +1,10 @@
+h1.text-center Ánimes
+
+- if !@anime_type.movies.empty?
+  - @anime_type.movies.each do |anime|
+    p = anime.title
+- else
+  .alert.alert-danger.text-center role="alert"
+    span.glyphicon.glyphicon-exclamation-sign aria-hidden="true"
+    span.sr-only Error:
+    | &nbsp No hay ánimes disponibles

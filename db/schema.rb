@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523143425) do
+ActiveRecord::Schema.define(version: 20160529040142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,12 @@ ActiveRecord::Schema.define(version: 20160523143425) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "categorizations", id: false, force: :cascade do |t|
@@ -52,11 +56,21 @@ ActiveRecord::Schema.define(version: 20160523143425) do
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "birthday"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres", force: :cascade do |t|
+  create_table "movie_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160523143425) do
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
     t.datetime "release_year"
+    t.integer  "movie_type_id"
   end
 
   add_index "movies", ["cached_votes_down"], name: "index_movies_on_cached_votes_down", using: :btree
@@ -91,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160523143425) do
   add_index "movies", ["cached_weighted_average"], name: "index_movies_on_cached_weighted_average", using: :btree
   add_index "movies", ["cached_weighted_score"], name: "index_movies_on_cached_weighted_score", using: :btree
   add_index "movies", ["cached_weighted_total"], name: "index_movies_on_cached_weighted_total", using: :btree
+  add_index "movies", ["movie_type_id"], name: "index_movies_on_movie_type_id", using: :btree
   add_index "movies", ["user_id"], name: "index_movies_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -135,5 +151,6 @@ ActiveRecord::Schema.define(version: 20160523143425) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "movies", "movie_types"
   add_foreign_key "movies", "users"
 end

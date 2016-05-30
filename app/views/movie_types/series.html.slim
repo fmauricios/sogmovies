@@ -1,0 +1,10 @@
+h1.text-center Series
+
+- if !@serie_type.movies.empty?
+  - @serie_type.movies.each do |serie|
+    p = serie.title
+- else
+  .alert.alert-danger.text-center role="alert"
+    span.glyphicon.glyphicon-exclamation-sign aria-hidden="true"
+    span.sr-only Error:
+    | &nbsp No hay series disponibles

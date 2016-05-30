@@ -51,6 +51,8 @@ GEM
     administrate-field-image (0.0.2)
       administrate (>= 0.2.0.rc1, < 0.3.0)
       rails (~> 4.2)
+    administrate-field-select (2.0.0)
+      administrate (~> 0.1, >= 0.1.5)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
@@ -244,6 +246,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.10.0)
   administrate (~> 0.2.0)
   administrate-field-image
+  administrate-field-select (~> 2.0)
   awesome_print
   bootstrap-sass (~> 3.3.6)
   byebug

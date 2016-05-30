@@ -11,16 +11,17 @@ div.jumbotron
       span = @user.username
 
     p
-      | Primer Nombre: 
+      | Nombre: 
       span = @user.first_name
+
+    p
+      | Apellidos: 
+      span = @user.last_name
 
     p
       | Correo Electrónico: 
       span = @user.email
 
-    p
-      | Apellidos: 
-      span = @user.last_name
     p = link_to "Editar Perfil", edit_user_registration_path
 
 h2.text-center Mis Películas Favoritas
