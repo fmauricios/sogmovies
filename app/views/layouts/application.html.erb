@@ -2,16 +2,15 @@
 <html>
 <head>
   <title>SOGMOVIES</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'partials/navbar' %>
-<div class="container">
+  <%= render partial: 'partials/navbar' %>
   <%= yield %>
-</div>
-  <%= render 'partials/footer' %>
+  <%= render partial: 'partials/footer' %>
 
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

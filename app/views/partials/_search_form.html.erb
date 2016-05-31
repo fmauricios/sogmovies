@@ -1,0 +1,5 @@
+<%= form_tag movies_path, method: :get, class: "form-horizontal navbar-form navbar-left" do %>
+  <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), prompt: "Selecciona criterio a ordenar" %>
+  <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]), prompt: "Selecciona un género" %>
+  <%= submit_tag "Ordenar", class: "btn btn-primary", id: "reset" %>
+<% end %>
