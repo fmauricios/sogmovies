@@ -6,17 +6,14 @@ gem "administrate-field-image"
 gem 'administrate-field-select', '~> 2.0', require: 'administrate/field/select_basic'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'compass', '~> 1.0', '>= 1.0.3'
 gem 'devise'
 gem 'devise-i18n'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-gem 'masonry-rails'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'pg', '~> 0.15'
 gem 'puma'
 gem 'rails', '4.2.6'
-gem 'rolify'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem "slim-rails"

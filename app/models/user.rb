@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   ## Validations
-  
-  validates :password, :username, :genre, presence: true
+
+  validates :email, :password, :password_confirmation, :username, :genre, presence: true
 
   has_many :movies
 

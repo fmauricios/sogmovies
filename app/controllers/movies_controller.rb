@@ -23,24 +23,29 @@ class MoviesController < ApplicationController
   end
 
   def upvote
-    @movie = Movie.find(params[:id])
-    @movie.upvote_by current_user
-    redirect_to :back
+    if current_user.nil?
+      flash[:alert] = "Para dar una calificación primero debes iniciar sesión"
+      redirect_to new_user_session_path
+    else
+      @movie = Movie.find(params[:id])
+      @movie.upvote_by current_user
+      redirect_to :back
+    end
   end
 
   def downvote
-    @movie = Movie.find(params[:id])
-    @movie.downvote_by current_user
-    redirect_to :back
+    if current_user.nil?
+      flash[:alert] = "Para dar una calificación primero debes iniciar sesión"
+      redirect_to new_user_session_path
+    else
+      @movie = Movie.find(params[:id])
+      @movie.downvote_by current_user
+      redirect_to :back
+    end
   end
 
   private
     def set_movie
       @movie = Movie.find(params[:id])
     end
-
-    # # Never trust parameters from the scary internet, only allow the white list through.
-    # def movie_params
-    #   params.require(:movie).permit(:title, :description, :movie_length, :avatar, :youtube_url, :release_year, :user)
-    # end
 end

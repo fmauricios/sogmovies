@@ -7,8 +7,8 @@
     = f.input :first_name, label: "Nombres"
     = f.input :last_name, label: "Apellidos"
     = f.input :username, label: "Nombre de usuario"
-    = f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero"
-    = f.input :avatar, as: :file
+    = f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero", label: "Género"
+    = f.input :avatar, as: :file, label: "Foto de perfil"
     = f.input :password, autocomplete: "off", label: "Contraseña"
     - if @minimum_password_length
       em 8 caracteres mínimo
