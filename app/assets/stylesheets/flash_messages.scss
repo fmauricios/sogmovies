@@ -2,3 +2,12 @@
   margin-top: 65px;
   text-align: center;
 }
+
+#error_explanation {
+  text-align: center;
+  color: #a94442;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
