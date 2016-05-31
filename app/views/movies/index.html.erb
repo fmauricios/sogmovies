@@ -9,6 +9,8 @@
   <% end %>
 </div>
 
-<div class="text-center">
-  <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
-</div>
+<% if params[:search] != "trending" %>
+  <div class="text-center">
+    <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+  </div>
+<% end %>

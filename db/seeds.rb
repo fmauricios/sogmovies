@@ -5,64 +5,60 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-MovieType.create(
-  [
-    {
-      name: "serie"
-    },
-    {
-      name: "anime"
-    },
-    {
-      name: "movie"
-    }
 
-  ]
+# Movie Types
+
+type_serie = MovieType.create(name: "serie")
+type_movie = MovieType.create(name: "movie")
+type_anime = MovieType.create(name: "anime")
+
+# Users
+
+user1 = User.create(
+  email: "mauricioserf@hotmail.com",
+  password: "mauricioserna95",
+  first_name: "Mauricio",
+  last_name: "Serna",
+  username: "fmauricios",
+  genre: "Hombre",
+  is_admin: true,
+  avatar: File.new(Rails.root.join("app", "assets", "images", "mauricio.jpg"))
 )
 
+# Genres
 
-User.create(
+terror = Genre.create(name: "Terror")
+genre2 = Genre.create(name: "Suspenso")
+accion = Genre.create(name: "Acción")
+comedia = Genre.create(name: "Comedia")
+aventura = Genre.create(name: "Aventura")
+
+# Actors
+
+dead_pool_actors = Actor.create(
   [
     {
-      email: "mauricioserf@hotmail.com",
-      password: "mauricioserna95",
-      first_name: "Mauricio",
-      last_name: "Serna",
-      username: "fmauricios",
-      genre: "Hombre",
-      is_admin: true
+      first_name: "Ryan",
+      last_name: "Reynolds",
+      birthday: Date.new(1976, 10, 23)
     },
     {
-      email: "1@sog_movies.com",
-      password: "sog_movies1",
-      first_name: "Anacleto",
-      last_name: "Perez",
-      username: "anape",
-      genre: "Hombre"
-    }
-  ]
-)
-
-Genre.create(
-  [
-    {
-      name: "Terror"
+      first_name: "Morena",
+      last_name: "Baccarin",
+      birthday: Date.new(1979, 06, 2)
     },
     {
-      name: "Suspenso"
-    },
-    {
-      name: "Acción"
-    },
-
-    {
-      name: "Comedia"
-    },
-    {
-      name: "Aventura"
+      first_name: "Ed",
+      last_name: "Skrein",
+      birthday: Date.new(1983, 03, 29)
     }
   ]
 )
+
+# Directors
+
+dead_pool_directors = Director.create(first_name: "Tim", last_name: "Miller", birthday: Date.new(1970, 03, 29))
+
 
 Movie.create(
   [
@@ -74,7 +70,8 @@ Movie.create(
       user: User.first,
       release_year: Date.new(2016, 5, 12),
       avatar: File.new(Rails.root.join("app", "assets", "images", "deadpool.jpeg")),
-      movie_type: MovieType.last
+      movie_type: type_movie,
+      actors: dead_pool_actors,
     },
     {
       title: "Avengers",
@@ -84,7 +81,7 @@ Movie.create(
       user: User.first,
       release_year: Date.new(2016, 5, 8),
       avatar: File.new(Rails.root.join("app", "assets", "images", "avengers.jpg")),
-      movie_type: MovieType.last
+      movie_type: type_movie
     },
     {
       title: "Revenant",
@@ -94,7 +91,7 @@ Movie.create(
       user: User.first,
       release_year: Date.new(2016, 3, 4),
       avatar: File.new(Rails.root.join("app", "assets", "images", "revenant.jpg")),
-      movie_type: MovieType.last
+      movie_type: type_movie
     },
     {
       title: "I Origins",
@@ -104,7 +101,7 @@ Movie.create(
       user: User.first,
       release_year: Date.new(2014, 1, 1),
       avatar: File.new(Rails.root.join("app", "assets", "images", "origins.jpg")),
-      movie_type: MovieType.last
+      movie_type: type_movie
     },
     {
       title: "The Equalizer",

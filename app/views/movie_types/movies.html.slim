@@ -4,7 +4,7 @@ h2.movie_type_title Películas
     - @movie_type.movies.each do |movie|
       .wrapper
         .photo
-          = image_tag(movie.avatar, width: 476, height: 268)
+          = link_to(image_tag(movie.avatar, width: 476, height: 268), movie_path(movie))
           p = movie.title
   - else
     .container

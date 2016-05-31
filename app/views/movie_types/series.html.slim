@@ -1,10 +1,10 @@
 h2.movie_type_title Series
 #photos
   - if !@serie_type.movies.empty?
-    - @serie_type.each do |serie|
+    - @serie_type.movies.each do |serie|
       .wrapper
         .photo
-          = image_tag(serie.avatar, width: 476, height: 268)
+          = link_to(image_tag(serie.avatar, width: 476, height: 268), movie_path(serie))
           p = serie.title
   - else
     .container

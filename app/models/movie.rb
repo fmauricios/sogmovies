@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
   # Validations
 
   validates :title, :description, presence: true
-  validates :description, length: { maximum: 250 }
+  validates :description, length: { maximum: 500 }
 
   # Relationships
 
