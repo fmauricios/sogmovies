@@ -9,6 +9,7 @@
 </head>
 <body>
   <%= render partial: 'partials/navbar' %>
+  <%= render 'layouts/messages' if !flash.empty? %>
   <%= yield %>
   <%= render partial: 'partials/footer' %>
 

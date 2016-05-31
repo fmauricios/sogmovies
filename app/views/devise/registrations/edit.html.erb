@@ -1,16 +1,17 @@
-<h2 class="text-center">Editando Mi Perfil</h2>
+<div class="container session_edit">
+  <h2 class="text-center">Editando Mi Perfil</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal', method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <%= f.input :email, autofocus: true, label: "Correo electrónico" %>
-  <%= f.input :first_name, label: "Nombres" %>
-  <%= f.input :last_name, label: "Apellidos" %>
-  <%= f.input :username, label: "Nombre de usuario" %>
-  <%= f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero" %>
-  <%= f.input :avatar, as: :file %>
-  <%= f.input :current_password, autocomplete: "off", label: "Contraseña actual" %>
-  <%= f.input :password, autocomplete: "off", label: "Nueva contraseña" %>
-  <%= f.input :password_confirmation, autocomplete: "off", label: "Repite tu contraseña" %>
-  <%= f.submit 'Editar', class: "btn btn-success center-block" %>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal', method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.input :email, autofocus: true, label: "Correo electrónico" %>
+    <%= f.input :first_name, label: "Nombres" %>
+    <%= f.input :last_name, label: "Apellidos" %>
+    <%= f.input :username, label: "Nombre de usuario" %>
+    <%= f.input :genre, collection: ["Hombre", "Mujer", "Otro"], prompt: "Seleciona tu genero" %>
+    <%= f.input :avatar, as: :file %>
+    <%= f.input :current_password, autocomplete: "off", label: "Contraseña actual" %>
+    <%= f.input :password, autocomplete: "off", label: "Nueva contraseña" %>
+    <%= f.input :password_confirmation, autocomplete: "off", label: "Repite tu contraseña" %>
+    <%= f.submit 'Editar', class: "btn btn-success center-block" %>
+  <% end %>
+</div>
