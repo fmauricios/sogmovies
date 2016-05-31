@@ -1,15 +1,16 @@
-div.jumbotron
-  div.text-center
-    h1 = @director.full_name
-    div class="row"
-      div class="span4"
-      div class="span4"
-        = image_tag(@director.avatar, class:"img-responsive center-block", width: "304", height:"236")
-      div class="span4"
-    p
-      | Fecha de nacimiento:
-      span = @director.birthday.strftime("%d-%m-%Y")
+.container.director_container
+  div.jumbotron
+    div.text-center
+      h1 = @director.full_name
+      div class="row"
+        div class="span4"
+        div class="span4"
+          = image_tag(@director.avatar, class:"img-responsive center-block", width: "304", height:"236")
+        div class="span4"
+      p
+        | Fecha de nacimiento:
+        span = @director.birthday.strftime("%d-%m-%Y")
 
-    h2 Películas que ha dirigido
-    - @director.movies.each do |movie|
-      p = link_to movie.title, movie
+      h2 Películas que ha dirigido
+      - @director.movies.each do |movie|
+        p = link_to movie.title, movie
