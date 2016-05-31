@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
         @movies = Movie.paginate(page: params[:page], per_page: 6).order(cached_votes_up: :desc)
       elsif params[:search] == "trending"
         @movies = Movie.paginate(page: params[:page], per_page: 10).order(cached_votes_up: :desc).limit(10)
-      elsif params[:genre_id]
+      elsif !params[:genre_id].empty?
         @movies = Genre.find(params[:genre_id]).movies.paginate(page: params[:page], per_page: 6)
       end
     end
@@ -21,12 +21,12 @@ class MoviesController < ApplicationController
 
   def show
   end
-  
-  def upvote 
+
+  def upvote
     @movie = Movie.find(params[:id])
     @movie.upvote_by current_user
     redirect_to :back
-  end  
+  end
 
   def downvote
     @movie = Movie.find(params[:id])

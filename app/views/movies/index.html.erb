@@ -1,50 +1,14 @@
-<%= link_to 'Películas', show_movies_path(@movie_type) %>
-<%= link_to 'Series', series_path(@serie_type) %>
-<%= link_to 'Ánimes', animes_path(@anime_type) %>
-
-<div class="row">
-  <div class="col-lg-4 col-lg-offset-4">
-    <div class="input-group form_filter">
-      <%= form_tag movies_path, method: :get, class: "form-horizontal navbar-form navbar-left" do %>
-        <div class="form-group">
-          <div class="select">
-            <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), prompt: "Selecciona criterio a ordenar", id: "slct order__options" %>
-            <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]), prompt: "Selecciona un género", id: "genre__options" %>
-          </div>
+<div id="photos">
+  <% @movies.each do |movie| %>
+      <div class="wrapper">
+        <div class="photo">
+          <%= link_to(image_tag(movie.avatar, width: 476, height: 268), movie_path(movie)) %>
+           <p> <%= movie.title %></p>
         </div>
-        <span class="input-group-btn">
-          <%= submit_tag "Ordenar", class: "btn btn-primary", id: "reset" %>
-        </span>
-      <% end %>
-    </div>
-  </div>
+      </div>
+  <% end %>
 </div>
 
-
-
-
-<div class="container-fluid" style="margin-top:35px;">
-  <% @movies.each do |movie| %>
-    <div class="col-xs-12 col-md-6">
-      <div class="panel panel-default">
-        <div class="panel-image">
-          <%= link_to(image_tag(movie.avatar, class: "panel-image-preview"), root_path) %>
-          <label for="toggle-4"></label>
-        </div>
-        <div class="panel-body">
-          <h4 class="text-center"><%= link_to movie.title, movie %></h4>
-          <!-- <p>
-          <%= truncate(movie.description, length: 230) %>
-          <span> <%= link_to "Leer más", movie_path(movie.id)%></span>
-          </p> -->
-        </div>
-        <!-- <div class="panel-footer text-center">
-          <span class="fa fa-clock-o"> <%= movie.movie_length %> minutos</span>
-        </div> -->
-      </div>
-    </div>
-  <% end %>
-  <div class="text-center">
-    <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
-  </div>
+<div class="text-center">
+  <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
 </div>

@@ -1,42 +1,49 @@
 <!-- Fixed navbar -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
- <div class="container">
-   <div class="navbar-header">
-     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-       <span class="sr-only">Navegación</span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-       <span class="icon-bar"></span>
-     </button>
-     <div class="small-logo-container">
-       <%= link_to("SOGMovies", root_path, class: "small-logo") %>
-     </div>
-   </div>
-   <div class="navbar-collapse collapse">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to("SOGMovies", root_path, class: "navbar-brand") %>
+    </div>
 
-     <ul class="nav navbar-nav navbar-right">
-       <li> <%= link_to "Inicio", root_path %> </li>
-       <% if user_signed_in? %>
-         <% if current_user.is_admin? %>
-           <li> <%= link_to "Administrador", admin_root_path %></li>
-         <% end %>
-         <li><%= link_to image_tag(current_user.avatar, class:"img-circle navbar-image", width: "38", height:"32"), user_path(current_user) %></li>
-         <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
-       <% else %>
-         <li> <%= link_to "Iniciar Sesión", new_user_session_path %>  </li>
-         <li> <%= link_to "Registrarse", new_user_registration_path %>  </li>
-       <% end %>
-     </ul>
-   </div><!--/.nav-collapse -->
- </div>
-</div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <%= form_tag movies_path, method: :get, class: "navbar-form navbar-left" do %>
+          <div class="form-group">
+            <%= select_tag "search", options_for_select([["Trending Top", "trending"], ["Título", "title"],["Año", "release_year"], ["Popularidad", "popularity"]], params[:search]), prompt: "Selecciona criterio a ordenar", id: "slct order__options" %>
+            &nbsp
+            <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]), prompt: "Selecciona un género", id: "genre__options" %>
+          </div> &nbsp
+          <%= submit_tag "Ordenar", class: "btn btn-primary", id: "reset" %>
+        <% end %>
 
-<div class="container-fluid big-logo-row">
- <div class="container">
-   <div class="row">
-     <div class="col-xs-12 big-logo-container">
-       <h1 class="big-logo"></h1>
-     </div><!--/.col-xs-12 -->
-   </div><!--/.row -->
- </div><!--/.container -->
-</div><!--/.container-fluid -->
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorías <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Películas', show_movies_path(@movie_type) %></li>
+              <li><%= link_to 'Series', series_path(@serie_type) %></li>
+              <li><%= link_to 'Ánimes', animes_path(@anime_type) %></li>
+            </ul>
+          </li>
+        </ul>
+        <% if user_signed_in? %>
+          <% if current_user.is_admin? %>
+            <li> <%= link_to "Administrador", admin_root_path %></li>
+          <% end %>
+          <li><%= link_to current_user.username, user_path(current_user) %></li>
+          <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li> <%= link_to "Iniciar Sesión", new_user_session_path %>  </li>
+          <li> <%= link_to "Registrarse", new_user_registration_path %>  </li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<!-- End fixed navbar -->

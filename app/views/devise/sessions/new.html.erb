@@ -1,6 +1,5 @@
-<h2 class="text-center">Iniciar Sesión</h2>
-
-<div class="container">
+<div class="session_new container">
+  <h2 class="text-center">Iniciar Sesión</h2>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' }) do |f| %>
     <%= f.input :email, autofocus: true, label: "Correo electrónico" %>
     <%= f.input :password, autocomplete: "off", label: "Contraseña" %>
