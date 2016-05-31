@@ -1,61 +1,38 @@
-h2.text-center = @movie.title
-div
-  = embed_video(@movie.youtube_url)
-div.pull-right
-  = link_to favorite_movie_path(@movie), method: :put do
-    i class="fa fa-heart" aria-hidden="true" style="color: red;"
-    |
-      &nbsp
-    = @movie.get_upvotes.size
-    |
-      &nbsp&nbsp
-  = link_to unfavorite_movie_path(@movie), method: :put do
-    i class="fa fa-heart-o" aria-hidden="true"
-    |
-     &nbsp
-    = @movie.get_downvotes.size
+div.container.movies_container
+  div
+    = embed_video(@movie.youtube_url)
+  div.pull-right
+    = link_to favorite_movie_path(@movie), method: :put do
+      i class="fa fa-heart" aria-hidden="true" style="color: red;"
+      |
+        &nbsp
+      = @movie.get_upvotes.size
+      |
+        &nbsp&nbsp
+    = link_to unfavorite_movie_path(@movie), method: :put do
+      i class="fa fa-heart-o" aria-hidden="true"
+      |
+       &nbsp
+      = @movie.get_downvotes.size
 
-  div.panes-content
-    ul.nav.nav-tabs role="tablist"
-      li.active role="presentation"
-        a aria-controls="description" data-toggle="tab" href="#description" role="tab"  Descripción
-      li role="presentation"
-        a aria-controls="movie_length" data-toggle="tab" href="#movie_length" role="tab"  Duración
-      li role="presentation"
-        a aria-controls="release_year" data-toggle="tab" href="#release_year" role="tab"  Año de lanzamiento
-      li role="presentation"
-        a aria-controls="genres" data-toggle="tab" href="#genres" role="tab" Géneros
-      li role="presentation"
-        a aria-controls="directors" data-toggle="tab" href="#directors" role="tab"  Directores
-      li role="presentation"
-        a aria-controls="actors" data-toggle="tab" href="#actors" role="tab" Actores
-    /! Tab panes
-    .tab-content
-      #description.tab-pane.active role="tabpanel"  = @movie.description
-      #movie_length.tab-pane role="tabpanel"
-        |
-        = @movie.movie_length
-        | &nbsp minutos
-      #release_year.tab-pane role="tabpanel"  = @movie.release_year.strftime("%Y-%m-%d")
-      #genres.tab-pane role="tabpanel"
-        |
-        - @movie.genres.each do |genre|
-          ul
-            li
-              = genre.name
-
-      #directors.tab-pane role="tabpanel"
-        |
-        - @movie.directors.each do |director|
-          ul
-            li
-              = link_to director.full_name, director
-      #actors.tab-pane role="tabpanel"
-        |
-        - @movie.actors.each do |actor|
-          ul
-            li
-              = link_to actor.full_name, actor
+  .jumbotron
+    h1.display-3.text-center = @movie.title
+    p.lead
+      | Descripción: #{@movie.description}
+    p.lead
+      | Duración: #{@movie.movie_length} minutos
+    p.lead
+      | Géneros:
+      - @movie.genres.each do |genre|
+        | &nbsp #{genre.name}
+    p.lead
+      | Directores:
+      - @movie.directors.each do |director|
+        | &nbsp #{link_to director.full_name, director_path(director)}
+    p.lead
+      | Acotres:
+      - @movie.actors.each do |actor|
+        | &nbsp #{link_to actor.full_name, actor_path(actor)}
 
   #disqus_thread
 javascript:
