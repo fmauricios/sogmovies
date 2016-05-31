@@ -1,3 +1,4 @@
+h2.movie_type_title Ánimes
 #photos
   - if !@anime_type.movies.empty?
     - @anime_type.movies.each do |anime|
@@ -10,4 +11,4 @@
       .alert.alert-danger.text-center role="alert"
         span.glyphicon.glyphicon-exclamation-sign aria-hidden="true"
         span.sr-only Error:
-        | &nbsp No hay series disponibles
+        | &nbsp No hay ánimes disponibles
